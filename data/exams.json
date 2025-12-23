@@ -1,0 +1,166 @@
+[
+    {
+        "id": "ssc-gd-2026",
+        "title": "SSC GD Constable 2026",
+        "organization": "Staff Selection Commission",
+        "category": "Defense",
+        "examDate": "2026-01-20",
+        "status": "confirmed",
+        "description": "Recruitment for Constable (General Duty) in Central Armed Police Forces (CAPFs), NIA, SSF and Rifleman (GD) in Assam Rifles.",
+        "applicationStartDate": "2025-11-24",
+        "applicationEndDate": "2025-12-31",
+        "officialNotificationUrl": "https://ssc.nic.in",
+        "tags": [
+            "10th Pass",
+            "Constable",
+            "CAPF"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "gate-2026",
+        "title": "GATE 2026",
+        "organization": "IITs / IISc",
+        "category": "Other",
+        "examDate": "2026-02-07",
+        "status": "confirmed",
+        "description": "Graduate Aptitude Test in Engineering (GATE) is a national level exam that primarily tests the comprehensive understanding of various undergraduate subjects in Engineering and Technology.",
+        "applicationStartDate": "2025-08-30",
+        "applicationEndDate": "2025-10-12",
+        "officialNotificationUrl": "https://gate.iitk.ac.in",
+        "tags": [
+            "Engineering",
+            "PSU",
+            "MTech"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "upsc-cds-1-2026",
+        "title": "Combined Defence Services (I) 2026",
+        "organization": "UPSC",
+        "category": "Defense",
+        "examDate": "2026-04-12",
+        "status": "released",
+        "description": " Exam for recruitment into the Indian Military Academy, Officers Training Academy, Indian Naval Academy and Indian Air Force Academy.",
+        "applicationStartDate": "2025-12-20",
+        "applicationEndDate": "2026-01-09",
+        "officialNotificationUrl": "https://upsc.gov.in",
+        "tags": [
+            "Army",
+            "Navy",
+            "Air Force",
+            "Officer"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "upsc-nda-1-2026",
+        "title": "NDA & NA (I) Examination 2026",
+        "organization": "UPSC",
+        "category": "Defense",
+        "examDate": "2026-04-12",
+        "status": "released",
+        "description": "National Defence Academy and Naval Academy Examination (I) 2026 for admission to the Army, Navy and Air Force wings of the NDA.",
+        "applicationStartDate": "2025-12-20",
+        "applicationEndDate": "2026-01-09",
+        "officialNotificationUrl": "https://upsc.gov.in",
+        "tags": [
+            "12th Pass",
+            "Cadet",
+            "Defense"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "upsc-cse-2026",
+        "title": "Civil Services (Pre) Examination 2026",
+        "organization": "UPSC",
+        "category": "UPSC",
+        "examDate": "2026-05-24",
+        "status": "released",
+        "description": "The Civil Services Examination (Preliminary) 2026 for recruitment to IAS, IPS, IFS and other central services.",
+        "applicationStartDate": "2026-02-14",
+        "applicationEndDate": "2026-03-05",
+        "officialNotificationUrl": "https://upsc.gov.in",
+        "tags": [
+            "IAS",
+            "IPS",
+            "IFS",
+            "Class 1 Officer"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "ssc-chsl-2026",
+        "title": "SSC CHSL 2026",
+        "organization": "SSC",
+        "category": "SSC",
+        "examDate": "2026-06-15",
+        "status": "tentative",
+        "description": "Combined Higher Secondary (10+2) Level Examination for recruitment to Lower Divisional Clerk / Junior Secretariat Assistant, and Data Entry Operators.",
+        "applicationStartDate": "2026-04-02",
+        "applicationEndDate": "2026-05-01",
+        "officialNotificationUrl": "https://ssc.nic.in",
+        "tags": [
+            "12th Pass",
+            "Clerk",
+            "DEO"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "rbi-grade-b-2026",
+        "title": "RBI Grade B Officer 2026",
+        "organization": "Reserve Bank of India",
+        "category": "Banking",
+        "examDate": "2026-07-10",
+        "status": "predicted",
+        "description": "Recruitment of Officers in Grade 'B' (General) - DR, DEPR and DSIM in Common Seniority Group.",
+        "applicationStartDate": "2026-05-10",
+        "applicationEndDate": "2026-06-05",
+        "officialNotificationUrl": "https://rbi.org.in",
+        "tags": [
+            "Banking",
+            "Officer",
+            "RBI"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "ibps-rrb-2026",
+        "title": "IBPS RRB Officer / Assistant 2026",
+        "organization": "IBPS",
+        "category": "Banking",
+        "examDate": "2026-08-02",
+        "status": "predicted",
+        "description": "Common Recruitment Process for Recruitment of Officers (Scale-I, II & III) and Office Assistants (Multipurpose) in Regional Rural Banks (RRBs).",
+        "applicationStartDate": "2026-06-01",
+        "applicationEndDate": "2026-06-21",
+        "officialNotificationUrl": "https://ibps.in",
+        "tags": [
+            "Rural Bank",
+            "PO",
+            "Clerk"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "ssc-cgl-2026",
+        "title": "SSC CGL 2026",
+        "organization": "SSC",
+        "category": "SSC",
+        "examDate": "2026-09-15",
+        "status": "predicted",
+        "description": "Combined Graduate Level Examination 2026 for recruitment to Group B and Group C posts in various Ministries/Departments.",
+        "applicationStartDate": "2026-06-11",
+        "applicationEndDate": "2026-07-10",
+        "officialNotificationUrl": "https://ssc.nic.in",
+        "tags": [
+            "Inspector",
+            "ASO",
+            "Auditor"
+        ],
+        "isPopular": true
+    }
+]
