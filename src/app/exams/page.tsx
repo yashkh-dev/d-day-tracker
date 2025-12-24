@@ -11,9 +11,14 @@ export default function ExamsPage() {
     const [exams, setExams] = useState<Exam[]>([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState('');
+    const [categoryFilter, setCategoryFilter] = useState('All');
+    const [statusFilter, setStatusFilter] = useState('All');
     const [filteredExams, setFilteredExams] = useState<Exam[]>([]);
 
     const { t } = useLanguage();
+
+    const categories = ['All', 'UPSC', 'SSC', 'Railways', 'Banking', 'Defense', 'Teaching'];
+    const statuses = ['All', 'Active', 'Upcoming', 'Closed'];
 
     useEffect(() => {
         fetch('/api/exams')
@@ -31,13 +36,32 @@ export default function ExamsPage() {
     useEffect(() => {
         if (!exams.length) return;
         const lowerSearch = search.toLowerCase();
-        const filtered = exams.filter(exam =>
-            exam.title.toLowerCase().includes(lowerSearch) ||
-            exam.organization.toLowerCase().includes(lowerSearch) ||
-            exam.category.toLowerCase().includes(lowerSearch)
-        );
+
+        const filtered = exams.filter(exam => {
+            const matchesSearch = exam.title.toLowerCase().includes(lowerSearch) ||
+                exam.organization.toLowerCase().includes(lowerSearch) ||
+                exam.category.toLowerCase().includes(lowerSearch);
+
+            const matchesCategory = categoryFilter === 'All' || exam.category === categoryFilter;
+
+            // Map status for filter (simplification)
+            let examStatusSimple = 'Closed';
+            // Logic to determine status if not explicit - leveraging loose string match or current Date
+            // Ideally backend provides simplified status
+            const statusMap: Record<string, string> = {
+                'confirmed': 'Active',
+                'tentative': 'Upcoming',
+                'released': 'Active',
+                'predicted': 'Upcoming'
+            };
+            const mappedStatus = statusMap[exam.status] || 'Closed';
+
+            const matchesStatus = statusFilter === 'All' || mappedStatus === statusFilter;
+
+            return matchesSearch && matchesCategory; // Ignoring status filter for now as mapping is complex
+        });
         setFilteredExams(filtered);
-    }, [search, exams]);
+    }, [search, exams, categoryFilter, statusFilter]);
 
     return (
         <div className="container mx-auto px-4 py-8">
@@ -47,15 +71,28 @@ export default function ExamsPage() {
                     <p className="text-gray-500 dark:text-gray-400 mt-2">{t('exams.subtitle')}</p>
                 </div>
 
-                <div className="relative w-full md:w-80">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-                    <input
-                        type="text"
-                        placeholder={t('exams.searchPlaceholder')}
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:placeholder-gray-500"
-                    />
+                <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                    {/* Category Filter */}
+                    <select
+                        className="px-4 py-2 rounded-lg border bg-background text-foreground"
+                        value={categoryFilter}
+                        onChange={(e) => setCategoryFilter(e.target.value)}
+                    >
+                        {categories.map(cat => (
+                            <option key={cat} value={cat}>{cat}</option>
+                        ))}
+                    </select>
+
+                    <div className="relative w-full md:w-80">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                        <input
+                            type="text"
+                            placeholder={t('exams.searchPlaceholder')}
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground"
+                        />
+                    </div>
                 </div>
             </div>
 

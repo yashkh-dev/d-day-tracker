@@ -13,9 +13,24 @@ interface ExamDetailsContentProps {
     news: NewsItem[]; // Assuming NewsItem, check types
 }
 
+import { useAuth } from '@/context/AuthContext';
+import { Bookmark, BookmarkCheck, PlayCircle, BookOpen } from 'lucide-react';
+
+// ... imports ...
+
 export function ExamDetailsContent({ exam, news }: ExamDetailsContentProps) {
     const { t } = useLanguage();
+    const { user, isExamSaved, toggleSaveExam, login } = useAuth();
     const isConfirmed = exam.status === 'confirmed' || exam.status === 'released';
+    const isSaved = isExamSaved(exam.id);
+
+    const handleSave = () => {
+        if (!user) {
+            login(); // Simple auto-login for demo, normally redirect
+            return;
+        }
+        toggleSaveExam(exam.id);
+    };
 
     return (
         <div className="container mx-auto px-4 py-8">
@@ -28,11 +43,23 @@ export function ExamDetailsContent({ exam, news }: ExamDetailsContentProps) {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Main Content */}
                 <div className="lg:col-span-2 space-y-8">
-                    <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
-                        <div className="flex items-center gap-3 mb-4">
+                    <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-4">
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                className={`rounded-full hover:bg-primary/10 ${isSaved ? 'text-primary' : 'text-muted-foreground'}`}
+                                onClick={handleSave}
+                                title={isSaved ? "Unsave Exam" : "Save Exam"}
+                            >
+                                {isSaved ? <BookmarkCheck className="w-6 h-6 fill-primary" /> : <Bookmark className="w-6 h-6" />}
+                            </Button>
+                        </div>
+
+                        <div className="flex items-center gap-3 mb-4 pr-12">
                             <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-semibold capitalize">{exam.category}</span>
                             {isConfirmed && <span className="flex items-center text-green-600 dark:text-green-400 text-sm font-medium bg-green-50 dark:bg-green-900/20 px-3 py-1 rounded-full"><CheckCircle className="w-4 h-4 mr-1" /> {t('details.dateConfirmed')}</span>}
-                            <div className="ml-auto">
+                            <div className="ml-auto hidden sm:block">
                                 <a
                                     href={generateGoogleCalendarLink(exam)}
                                     target="_blank"
@@ -103,6 +130,28 @@ export function ExamDetailsContent({ exam, news }: ExamDetailsContentProps) {
                         </div>
                     </div>
 
+                    {/* Study Videos (YouTube Embeds) */}
+                    <div className="bg-card rounded-2xl p-8 border border-border/50 shadow-sm">
+                        <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
+                            <PlayCircle className="w-6 h-6 mr-3 text-red-600" />
+                            Free Study Resources
+                        </h2>
+                        <div className="aspect-video w-full rounded-xl overflow-hidden bg-muted relative">
+                            <iframe
+                                width="100%"
+                                height="100%"
+                                src={`https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(exam.title + ' preparation strategy')}`}
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-4 text-center">
+                            Curated strategy and preparation videos for {exam.title}
+                        </p>
+                    </div>
+
                     {/* News Section */}
                     <div className="bg-transparent">
                         <h2 className="text-2xl font-bold text-foreground flex items-center mb-6">
@@ -138,9 +187,20 @@ export function ExamDetailsContent({ exam, news }: ExamDetailsContentProps) {
                 {/* Sidebar */}
                 <div className="space-y-6">
                     <div className="bg-primary/5 rounded-xl p-6 border border-primary/10">
-                        <h3 className="font-bold text-primary mb-2">{t('details.studyResources')}</h3>
+                        <h3 className="font-bold text-primary mb-2 flex items-center gap-2">
+                            <BookOpen className="w-5 h-5" /> {t('details.studyResources')}
+                        </h3>
                         <p className="text-sm text-muted-foreground mb-4">{t('details.studyResourcesDesc').replace('your exam', exam.title)}</p>
-                        <Button variant="secondary" className="w-full bg-background text-primary hover:bg-primary/10 border border-primary/20">{t('details.findBooks')}</Button>
+
+                        <a
+                            href={`https://www.google.com/search?tbm=shop&q=${encodeURIComponent(exam.title + ' preparation books')}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Button variant="secondary" className="w-full bg-background text-primary hover:bg-primary/10 border border-primary/20">
+                                {t('details.findBooks')} <ExternalLink className="w-3 h-3 ml-2" />
+                            </Button>
+                        </a>
                     </div>
 
                     {/* Tags */}
