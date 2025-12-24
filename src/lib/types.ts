@@ -11,7 +11,7 @@ export interface Exam {
   description: string;
   applicationStartDate?: string;
   applicationEndDate?: string;
-  officialNotificationUrl?: string; 
+  officialNotificationUrl?: string;
   syllabusUrl?: string;
   admitCardDate?: string;
   resultDate?: string;
@@ -23,4 +23,12 @@ export interface ApiResponse<T> {
   success: boolean;
   data?: T;
   error?: string;
+}
+
+export interface NewsItem {
+  title: string;
+  description: string;
+  url: string;
+  source: string;
+  publishedAt: string;
 }

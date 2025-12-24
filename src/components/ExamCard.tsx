@@ -1,70 +1,60 @@
 import Link from 'next/link';
-import { Calendar, CheckCircle, Clock, AlertCircle } from 'lucide-react';
+import { Calendar, CheckCircle, Clock, AlertCircle, Building, ArrowRight } from 'lucide-react';
 import { Exam } from '@/lib/types';
 import { cn, formatDate } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-
-const StatusIcon = ({ status }: { status: Exam['status'] }) => {
-    switch (status) {
-        case 'confirmed': return <CheckCircle className="w-4 h-4 text-green-500" />;
-        case 'tentative': return <Clock className="w-4 h-4 text-yellow-500" />;
-        case 'predicted': return <AlertCircle className="w-4 h-4 text-blue-500" />;
-        case 'released': return <CheckCircle className="w-4 h-4 text-purple-500" />;
-        default: return null;
-    }
-};
-
-const StatusBadge = ({ status }: { status: Exam['status'] }) => {
-    const styles: Record<Exam['status'], string> = {
-        confirmed: 'bg-green-100 text-green-700 border-green-200',
-        tentative: 'bg-yellow-100 text-yellow-700 border-yellow-200',
-        predicted: 'bg-blue-100 text-blue-700 border-blue-200',
-        released: 'bg-purple-100 text-purple-700 border-purple-200',
-    };
-
-    return (
-        <span className={cn("text-xs px-2 py-1 rounded-full border flex items-center gap-1 font-medium capitalize", styles[status])}>
-            <StatusIcon status={status} />
-            {status}
-        </span>
-    );
-};
+import { generateGoogleCalendarLink } from '@/lib/calendar';
+import { useLanguage } from '@/context/LanguageContext';
 
 export function ExamCard({ exam }: { exam: Exam }) {
+    const { t } = useLanguage();
+    // Re-calculating status for the badge logic if needed, or using exam.status
+    const isConfirmed = exam.status === 'confirmed' || exam.status === 'released';
+
     return (
-        <div className="group relative bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-blue-500/50">
+        <div className="group relative bg-card rounded-2xl p-6 border border-border/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
             <div className="flex justify-between items-start mb-4">
-                <div>
-                    <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded-md mb-2 inline-block">
-                        {exam.category}
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary capitalize">
+                    {exam.category}
+                </span>
+                {isConfirmed ? (
+                    <span className="inline-flex items-center text-green-600 dark:text-green-400 text-xs font-medium bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-full">
+                        <CheckCircle className="w-3 h-3 mr-1" /> {formatDate(exam.examDate)}
                     </span>
-                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
-                        {exam.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 mt-1">{exam.organization}</p>
-                </div>
-                <StatusBadge status={exam.status} />
-            </div>
-
-            <div className="space-y-3 mb-6">
-                <div className="flex items-center text-sm text-gray-600">
-                    <Calendar className="w-4 h-4 mr-2 text-gray-400" />
-                    <span>Exam Date: <span className="font-medium text-gray-900">{formatDate(exam.examDate)}</span></span>
-                </div>
-
-                {exam.applicationStartDate && (
-                    <div className="text-xs text-gray-500 bg-gray-50 p-2 rounded border border-gray-100">
-                        Apply: {formatDate(exam.applicationStartDate)} - {formatDate(exam.applicationEndDate)}
-                    </div>
+                ) : (
+                    <span className="inline-flex items-center text-muted-foreground text-xs font-medium px-2 py-1 bg-muted rounded-full">
+                        <Clock className="w-3 h-3 mr-1" /> Expected: {formatDate(exam.examDate)}
+                    </span>
                 )}
             </div>
 
-            <div className="flex items-center justify-between mt-auto">
-                <Link href={`/exam/${exam.id}`} className="w-full">
-                    <Button variant="outline" className="w-full group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        View Details
+            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                {exam.title}
+            </h3>
+
+            <div className="flex items-center text-muted-foreground text-sm mb-6 mt-auto pt-2">
+                <Building className="w-4 h-4 mr-2 text-primary/60" />
+                <span className="line-clamp-1">{exam.organization}</span>
+            </div>
+
+            <div className="flex gap-3 mt-4 pt-4 border-t border-border/30">
+                <Link href={`/exam/${exam.id}`} className="flex-1">
+                    <Button variant="default" className="w-full rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm transition-all duration-300 group-hover:shadow-primary/20">
+                        {t('exam.viewDetails')} <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
                 </Link>
+                <div className="flex-shrink-0">
+                    <a
+                        href={generateGoogleCalendarLink(exam)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex"
+                    >
+                        <Button variant="secondary" size="icon" className="rounded-xl hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/20 dark:hover:text-red-400 transition-colors bg-secondary text-secondary-foreground" title={t('exam.addToCalendar')}>
+                            <Calendar className="w-5 h-5" />
+                        </Button>
+                    </a>
+                </div>
             </div>
         </div>
     );

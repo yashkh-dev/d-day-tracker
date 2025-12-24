@@ -5,12 +5,15 @@ import { Exam } from '@/lib/types';
 import { ExamCard } from '@/components/ExamCard';
 import { Search, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function ExamsPage() {
     const [exams, setExams] = useState<Exam[]>([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState('');
     const [filteredExams, setFilteredExams] = useState<Exam[]>([]);
+
+    const { t } = useLanguage();
 
     useEffect(() => {
         fetch('/api/exams')
@@ -40,18 +43,18 @@ export default function ExamsPage() {
         <div className="container mx-auto px-4 py-8">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900">All Exams</h1>
-                    <p className="text-gray-500 mt-2">Browse all upcoming and past government exams.</p>
+                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{t('exams.title')}</h1>
+                    <p className="text-gray-500 dark:text-gray-400 mt-2">{t('exams.subtitle')}</p>
                 </div>
 
                 <div className="relative w-full md:w-80">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                     <input
                         type="text"
-                        placeholder="Search exams..."
+                        placeholder={t('exams.searchPlaceholder')}
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                        className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:placeholder-gray-500"
                     />
                 </div>
             </div>
@@ -67,9 +70,9 @@ export default function ExamsPage() {
                     ))}
                 </div>
             ) : (
-                <div className="text-center py-20 bg-white rounded-xl border border-dashed">
-                    <p className="text-gray-500 mb-4">No exams found matching your search.</p>
-                    <Button variant="outline" onClick={() => setSearch('')}>Clear Search</Button>
+                <div className="text-center py-20 bg-white dark:bg-gray-900 rounded-xl border border-dashed border-gray-200 dark:border-gray-800">
+                    <p className="text-gray-500 dark:text-gray-400 mb-4">{t('exams.noResults')}</p>
+                    <Button variant="outline" onClick={() => setSearch('')}>{t('exams.clearSearch')}</Button>
                 </div>
             )}
         </div>
