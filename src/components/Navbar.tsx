@@ -59,10 +59,14 @@ export function Navbar() {
                                 className="hidden sm:flex hover:bg-accent gap-2"
                                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                             >
-                                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                                    <User className="w-4 h-4 text-primary" />
+                                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
+                                    {user.photoURL ? (
+                                        <img src={user.photoURL} alt={user.name} className="w-full h-full object-cover" />
+                                    ) : (
+                                        <User className="w-4 h-4 text-primary" />
+                                    )}
                                 </div>
-                                <span className="font-medium">{user.name}</span>
+                                <span className="font-medium">{user.name.split(' ')[0]}</span>
                                 <ChevronDown className={`w-3 h-3 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
                             </Button>
 
@@ -70,7 +74,7 @@ export function Navbar() {
                                 <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-card border border-border ring-1 ring-black ring-opacity-5 focus:outline-none animate-in fade-in zoom-in-95 duration-200">
                                     <div className="py-1">
                                         <div className="px-4 py-2 border-b border-border/50">
-                                            <p className="text-sm font-medium text-foreground">{user.name}</p>
+                                            <p className="text-sm font-medium text-foreground truncate">{user.name}</p>
                                             <p className="text-xs text-muted-foreground truncate">{user.email}</p>
                                         </div>
                                         <Link
@@ -83,8 +87,8 @@ export function Navbar() {
                                         </Link>
                                         <button
                                             className="group flex w-full items-center px-4 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-950/50 cursor-pointer"
-                                            onClick={() => {
-                                                logout();
+                                            onClick={async () => {
+                                                await logout();
                                                 setIsDropdownOpen(false);
                                             }}
                                         >
@@ -106,8 +110,8 @@ export function Navbar() {
             <LoginModal
                 isOpen={showLoginModal}
                 onClose={() => setShowLoginModal(false)}
-                onLogin={() => {
-                    login();
+                onLogin={async () => {
+                    await login();
                     setShowLoginModal(false);
                 }}
             />
