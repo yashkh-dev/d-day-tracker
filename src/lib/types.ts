@@ -1,5 +1,5 @@
 export type ExamStatus = 'confirmed' | 'tentative' | 'predicted' | 'released';
-export type ExamCategory = 'UPSC' | 'SSC' | 'Railways' | 'Banking' | 'Teaching' | 'Defense' | 'State PSC' | 'Other';
+export type ExamCategory = 'UPSC' | 'SSC' | 'Railways' | 'Banking' | 'Teaching' | 'Defense' | 'Engineering' | 'Medical' | 'Management' | 'Law' | 'State PSC' | 'Other';
 
 export interface Exam {
   id: string;

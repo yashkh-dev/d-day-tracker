@@ -1,3 +1,5 @@
+"use client"
+
 import Link from 'next/link';
 import { Calendar, CheckCircle, Clock, AlertCircle, Building, ArrowRight } from 'lucide-react';
 import { Exam } from '@/lib/types';

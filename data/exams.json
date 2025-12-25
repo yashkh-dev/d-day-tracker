@@ -162,5 +162,153 @@
             "Auditor"
         ],
         "isPopular": true
+    },
+    {
+        "id": "neet-ug-2026",
+        "title": "NEET UG 2026",
+        "organization": "NTA",
+        "category": "Medical",
+        "examDate": "2026-05-03",
+        "status": "tentative",
+        "description": "National Eligibility cum Entrance Test (Undergraduate) for admission to MBBS/BDS courses in Indian medical colleges.",
+        "applicationStartDate": "2026-02-01",
+        "applicationEndDate": "2026-03-15",
+        "officialNotificationUrl": "https://neet.nta.nic.in",
+        "tags": [
+            "MBBS",
+            "BDS",
+            "Doctor",
+            "Medical"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "jee-main-2026-session-1",
+        "title": "JEE Main 2026 (Session 1)",
+        "organization": "NTA",
+        "category": "Engineering",
+        "examDate": "2026-01-21",
+        "status": "tentative",
+        "description": "Joint Entrance Examination (Main) for admission to NITs, IIITs, and other Centrally Funded Technical Institutions.",
+        "applicationStartDate": "2025-11-01",
+        "applicationEndDate": "2025-11-30",
+        "officialNotificationUrl": "https://jeemain.nta.nic.in",
+        "tags": [
+            "Engineering",
+            "BTech",
+            "NIT",
+            "IIIT"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "jee-advanced-2026",
+        "title": "JEE Advanced 2026",
+        "organization": "IIT Madras",
+        "category": "Engineering",
+        "examDate": "2026-05-17",
+        "status": "tentative",
+        "description": "Joint Entrance Examination (Advanced) for admission to the Indian Institutes of Technology (IITs).",
+        "applicationStartDate": "2026-04-21",
+        "applicationEndDate": "2026-04-30",
+        "officialNotificationUrl": "https://jeeadv.ac.in",
+        "tags": [
+            "IIT",
+            "Engineering",
+            "BTech"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "cat-2026",
+        "title": "CAT 2026",
+        "organization": "IIMs",
+        "category": "Management",
+        "examDate": "2026-11-29",
+        "status": "predicted",
+        "description": "Common Admission Test for admission to MBA/PGDM programs in IIMs and other top business schools.",
+        "applicationStartDate": "2026-08-02",
+        "applicationEndDate": "2026-09-13",
+        "officialNotificationUrl": "https://iimcat.ac.in",
+        "tags": [
+            "MBA",
+            "IIM",
+            "Management"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "clat-2026",
+        "title": "CLAT 2026",
+        "organization": "Consortium of NLUs",
+        "category": "Law",
+        "examDate": "2025-12-07",
+        "status": "confirmed",
+        "description": "Common Law Admission Test for admission to undergraduate and postgraduate law programmes offered by 22 National Law Universities.",
+        "applicationStartDate": "2025-07-15",
+        "applicationEndDate": "2025-11-01",
+        "officialNotificationUrl": "https://consortiumofnlus.ac.in",
+        "tags": [
+            "Law",
+            "LLB",
+            "NLU",
+            "Advocate"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "ugc-net-dec-2025",
+        "title": "UGC NET Dec 2025",
+        "organization": "NTA",
+        "category": "Teaching",
+        "examDate": "2026-01-01",
+        "status": "tentative",
+        "description": "University Grants Commission National Eligibility Test for Assistant Professor and Junior Research Fellowship.",
+        "applicationStartDate": "2025-09-30",
+        "applicationEndDate": "2025-10-28",
+        "officialNotificationUrl": "https://ugcnet.nta.nic.in",
+        "tags": [
+            "Professor",
+            "Lecturer",
+            "JRF",
+            "PhD"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "ctet-jan-2026",
+        "title": "CTET Jan 2026",
+        "organization": "CBSE",
+        "category": "Teaching",
+        "examDate": "2026-01-18",
+        "status": "predicted",
+        "description": "Central Teacher Eligibility Test for appointment as a teacher in classes I to VIII.",
+        "applicationStartDate": "2025-11-03",
+        "applicationEndDate": "2025-11-23",
+        "officialNotificationUrl": "https://ctet.nic.in",
+        "tags": [
+            "Teacher",
+            "School",
+            "CBSE"
+        ],
+        "isPopular": true
+    },
+    {
+        "id": "rrb-ntpc-2026",
+        "title": "RRB NTPC 2026",
+        "organization": "Railway Recruitment Board",
+        "category": "Railways",
+        "examDate": "2026-03-15",
+        "status": "predicted",
+        "description": "Non-Technical Popular Categories recruitment for various posts in Indian Railways.",
+        "applicationStartDate": "2026-01-15",
+        "applicationEndDate": "2026-02-15",
+        "officialNotificationUrl": "https://indianrailways.gov.in",
+        "tags": [
+            "Railway",
+            "Station Master",
+            "Clerk"
+        ],
+        "isPopular": true
     }
 ]

@@ -23,21 +23,25 @@ export function HomeContent({ exams }: HomeContentProps) {
         .slice(0, 3);
 
     // Categorization Logic
-    const categories: (keyof typeof dictionary['en'])[] = ['category.UPSC', 'category.SSC', 'category.Banking', 'category.Defense'];
-
-    // Mapping logic needs original category strings or we map categories in types to keys
-    // For simplicity, let's assuming strict mapping or just string check
-    // The 'category' field in Exam is 'UPSC', 'SSC' etc. 
+    const categories: (keyof typeof dictionary['en'])[] = [
+        'category.UPSC', 'category.SSC', 'category.Banking', 'category.Defense',
+        'category.Engineering', 'category.Medical', 'category.Management', 'category.Teaching'
+    ];
 
     const getCategoryKey = (cat: string): keyof typeof dictionary['en'] | null => {
         if (cat === 'UPSC') return 'category.UPSC';
         if (cat === 'SSC') return 'category.SSC';
         if (cat === 'Banking') return 'category.Banking';
         if (cat === 'Defense') return 'category.Defense';
+        if (cat === 'Engineering') return 'category.Engineering';
+        if (cat === 'Medical') return 'category.Medical';
+        if (cat === 'Management') return 'category.Management';
+        if (cat === 'Teaching') return 'category.Teaching';
+        if (cat === 'Law') return 'category.Law';
         return null;
     };
 
-    const categorizedExams: Record<string, typeof exams> = ['UPSC', 'SSC', 'Banking', 'Defense'].reduce((acc, category) => {
+    const categorizedExams: Record<string, typeof exams> = ['UPSC', 'SSC', 'Banking', 'Defense', 'Engineering', 'Medical', 'Management', 'Teaching'].reduce((acc, category) => {
         acc[category] = exams
             .filter(e => e.category === category)
             .sort((a, b) => new Date(a.examDate).getTime() - new Date(b.examDate).getTime())
@@ -117,7 +121,7 @@ export function HomeContent({ exams }: HomeContentProps) {
 
             {/* Categorized Sections */}
             <section className="py-20 container mx-auto px-4 space-y-24">
-                {['UPSC', 'SSC', 'Banking', 'Defense'].map(category => {
+                {['UPSC', 'SSC', 'Banking', 'Defense', 'Engineering', 'Medical', 'Teaching'].map(category => {
                     const categoryExams = categorizedExams[category];
                     if (!categoryExams || categoryExams.length === 0) return null;
 
