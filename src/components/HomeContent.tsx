@@ -105,9 +105,6 @@ export function HomeContent({ exams }: HomeContentProps) {
             {trendingExams.length > 0 && (
                 <section className="py-20 container mx-auto px-4 border-b border-border/40">
                     <div className="flex items-center mb-10 gap-2">
-                        <div className="bg-orange-100 dark:bg-orange-900/20 p-2 rounded-lg">
-                            <span className="text-2xl">🔥</span>
-                        </div>
                         <h2 className="text-3xl font-bold tracking-tight text-foreground">{t('trending.title')}</h2>
                     </div>
 
