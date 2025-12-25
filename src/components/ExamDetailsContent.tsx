@@ -82,6 +82,66 @@ export function ExamDetailsContent({ exam, news }: ExamDetailsContentProps) {
                             <p>{exam.description}</p>
                         </div>
 
+                        {/* Extended Details Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                            {/* Eligibility */}
+                            {exam.eligibility && (
+                                <div className="bg-muted/50 p-6 rounded-xl border border-border/50">
+                                    <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+                                        <CheckCircle className="w-5 h-5 text-primary" />
+                                        {t('details.eligibility')}
+                                    </h3>
+                                    <ul className="space-y-3 text-sm">
+                                        {exam.eligibility.ageLimit && (
+                                            <li><span className="font-semibold text-foreground block">{t('details.ageLimit')}:</span> {exam.eligibility.ageLimit}</li>
+                                        )}
+                                        {exam.eligibility.qualification && (
+                                            <li><span className="font-semibold text-foreground block">{t('details.qualification')}:</span> {exam.eligibility.qualification}</li>
+                                        )}
+                                        {exam.eligibility.experience && (
+                                            <li><span className="font-semibold text-foreground block">{t('details.experience')}:</span> {exam.eligibility.experience}</li>
+                                        )}
+                                    </ul>
+                                </div>
+                            )}
+
+                            {/* Application Fee */}
+                            {exam.applicationFee && (
+                                <div className="bg-muted/50 p-6 rounded-xl border border-border/50">
+                                    <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+                                        <FileText className="w-5 h-5 text-primary" />
+                                        {t('details.applicationFee')}
+                                    </h3>
+                                    <p className="text-sm">{exam.applicationFee}</p>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Exam Pattern */}
+                        {exam.examPattern && (
+                            <div className="mt-8">
+                                <h3 className="text-xl font-bold text-foreground mb-4">{t('details.examPattern')}</h3>
+                                <div className="bg-muted/30 p-6 rounded-xl border border-border/50 text-sm leading-relaxed whitespace-pre-wrap">
+                                    {exam.examPattern}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Important Instructions (TnC) */}
+                        {exam.importantInstructions && exam.importantInstructions.length > 0 && (
+                            <div className="mt-8">
+                                <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                                    <AlertCircle className="w-5 h-5 text-orange-500" />
+                                    {t('details.importantInstructions')}
+                                </h3>
+                                <ul className="list-disc list-outside ml-5 space-y-2 text-sm text-muted-foreground">
+                                    {exam.importantInstructions.map((instruction, idx) => (
+                                        <li key={idx}>{instruction}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+
                         <div className="mt-8 flex flex-wrap gap-3">
                             {exam.officialNotificationUrl && (
                                 <Link href={exam.officialNotificationUrl} target="_blank">

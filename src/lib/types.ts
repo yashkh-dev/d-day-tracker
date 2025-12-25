@@ -17,6 +17,15 @@ export interface Exam {
   resultDate?: string;
   tags?: string[];
   isPopular?: boolean; // To feature on homepage
+  // Extended Details
+  eligibility?: {
+    ageLimit?: string;
+    qualification?: string;
+    experience?: string;
+  };
+  applicationFee?: string;
+  examPattern?: string; // Markdown supported
+  importantInstructions?: string[]; // TnC
 }
 
 export interface ApiResponse<T> {

@@ -180,7 +180,18 @@
             "Doctor",
             "Medical"
         ],
-        "isPopular": true
+        "isPopular": true,
+        "eligibility": {
+            "ageLimit": "Minimum 17 years as of Dec 31 of the year of admission.",
+            "qualification": "10+2 with Physics, Chemistry, Biology/Biotechnology, and English."
+        },
+        "applicationFee": "₹1700 (General), ₹1600 (EWS/OBC-NCL), ₹1000 (SC/ST/PwBD)",
+        "examPattern": "Offline (Pen & Paper). 200 Questions (180 to be attempted). 720 Marks. Duration: 3 Hours 20 Minutes.",
+        "importantInstructions": [
+            "Candidates must ensure they fulfill the age criteria.",
+            "Aadhar Card is mandatory for verification.",
+            "Carry a postcard size photograph to the center."
+        ]
     },
     {
         "id": "jee-main-2026-session-1",
@@ -199,7 +210,17 @@
             "NIT",
             "IIIT"
         ],
-        "isPopular": true
+        "isPopular": true,
+        "eligibility": {
+            "ageLimit": "No specific age limit.",
+            "qualification": "Passed 10+2 examination with Physics and Mathematics as compulsory subjects."
+        },
+        "applicationFee": "₹1000 (Male Gen/OBC), ₹800 (Male Gen-EWS/OBC-NCL), ₹500 (Females & SC/ST)",
+        "examPattern": "Computer Based Test. Paper 1 (B.E./B.Tech) - Physics, Chemistry, Maths. 90 Questions. 300 Marks.",
+        "importantInstructions": [
+            "Candidates can appear in 3 consecutive years.",
+            "Session 2 is optional but recommended for score improvement."
+        ]
     },
     {
         "id": "jee-advanced-2026",
@@ -217,7 +238,18 @@
             "Engineering",
             "BTech"
         ],
-        "isPopular": true
+        "isPopular": true,
+        "eligibility": {
+            "ageLimit": "Candidates should have been born on or after October 1, 2001 (5 years relaxation for SC/ST/PwD).",
+            "qualification": "Must qualify JEE Main 2026 and be among top 2,50,000 candidates."
+        },
+        "applicationFee": "₹3200 (General), ₹1600 (Females & SC/ST/PwD)",
+        "examPattern": "Two compulsory papers (Paper 1 & Paper 2). Physics, Chemistry, Maths. Mixed question types.",
+        "importantInstructions": [
+            "Both Paper 1 and Paper 2 are compulsory.",
+            "Attempt limit: Maximum of two times in two consecutive years.",
+            "Download Admit Card before the deadline."
+        ]
     },
     {
         "id": "cat-2026",
@@ -235,7 +267,17 @@
             "IIM",
             "Management"
         ],
-        "isPopular": true
+        "isPopular": true,
+        "eligibility": {
+            "ageLimit": "No age limit.",
+            "qualification": "Bachelor's Degree with at least 50% marks (45% for SC/ST/PwD)."
+        },
+        "applicationFee": "₹2400 (General/OBC), ₹1200 (SC/ST/PwD)",
+        "examPattern": "Computer Based Test. 3 Sections: VARC, DILR, QA. Duration: 2 Hours (40 min/section).",
+        "importantInstructions": [
+            "Calculators are not allowed (On-screen calculator provided).",
+            "Reach the center 90 minutes before start."
+        ]
     },
     {
         "id": "clat-2026",
@@ -254,7 +296,17 @@
             "NLU",
             "Advocate"
         ],
-        "isPopular": true
+        "isPopular": true,
+        "eligibility": {
+            "ageLimit": "No upper age limit for UG Programme.",
+            "qualification": "10+2 with 45% marks (40% for SC/ST)."
+        },
+        "applicationFee": "₹4000 (General/OBC), ₹3500 (SC/ST)",
+        "examPattern": "Offline. 120 Questions. 120 Marks. Duration: 2 Hours. English, Current Affairs, Logic, Math, Legal Reasoning.",
+        "importantInstructions": [
+            "Negative marking of 0.25 marks for wrong answers.",
+            "Carry valid ID proof and Black/Blue ball pen."
+        ]
     },
     {
         "id": "ugc-net-dec-2025",
@@ -273,7 +325,17 @@
             "JRF",
             "PhD"
         ],
-        "isPopular": true
+        "isPopular": true,
+        "eligibility": {
+            "ageLimit": "JRF: Not more than 30 years. Assistant Professor: No age limit.",
+            "qualification": "Master's Degree with 55% marks (50% for SC/ST/OBC/PwD)."
+        },
+        "applicationFee": "₹1150 (General), ₹600 (OBC/EWS), ₹325 (SC/ST/PwD)",
+        "examPattern": "CBT. Paper 1 (General) + Paper 2 (Subject). Total 150 Questions. No break between papers.",
+        "importantInstructions": [
+            "Candidates must apply online only.",
+            "Ensure subject code is correct during application."
+        ]
     },
     {
         "id": "ctet-jan-2026",
@@ -291,7 +353,17 @@
             "School",
             "CBSE"
         ],
-        "isPopular": true
+        "isPopular": true,
+        "eligibility": {
+            "ageLimit": "No age limit.",
+            "qualification": "Paper I: Senior Secondary + DElEd. Paper II: Graduation + B.Ed."
+        },
+        "applicationFee": "Paper I or II: ₹1000 (Gen/OBC), ₹500 (SC/ST). Both: ₹1200 (Gen/OBC), ₹600 (SC/ST).",
+        "examPattern": "Offline. 150 MCQs. 150 Marks. Duration: 2.5 Hours per paper.",
+        "importantInstructions": [
+            "Qualifying marks: 60% and above.",
+            "Certificate validity: Lifetime."
+        ]
     },
     {
         "id": "rrb-ntpc-2026",
