@@ -50,7 +50,6 @@ export const dictionary = {
         'details.studyResources': 'Study Resources',
         'details.studyResourcesDesc': 'Get ready for your exam with curated study materials.',
         'details.findBooks': 'Find Books & Mock Tests',
-        'details.findBooks': 'Find Books & Mock Tests',
         'details.relatedTags': 'Related Tags',
         'details.eligibility': 'Eligibility Criteria',
         'details.ageLimit': 'Age Limit',

@@ -11,9 +11,13 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+import { getFirestore } from "firebase/firestore";
+
+// Initialize Firebase
 // Use existing app if already initialized (prevents errors in strict mode)
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
+const db = getFirestore(app);
 
-export { auth, googleProvider };
+export { auth, googleProvider, db };
